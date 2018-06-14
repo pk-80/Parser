@@ -1,0 +1,12 @@
+{
+  "name": "parsers",
+  "version": "0.0.0",
+  "description": "Parsers desc",
+  "main": "app.js",
+  "author": {
+    "name": "PK"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.87"
+  }
+}
