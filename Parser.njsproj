@@ -36,6 +36,9 @@
     <TypeScriptCompile Include="app.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Decorators.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="Dims.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

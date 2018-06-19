@@ -1,14 +1,17 @@
 ﻿import { isNull } from "util";
+import { LogMethodParams, LogMethodResult, IncreaseByOne } from "./Decorators";
 
 
-interface ICalculator
+interface IParser
 {
     Parse(mathExpression: string): number;
 }
 
 
-class Calculator implements ICalculator
+class Parser implements IParser
 {
+    @LogMethodParams
+    @LogMethodResult
     Parse(mathExpr: string): any
     {
         let forwardBrIndex = -1;
@@ -26,9 +29,9 @@ class Calculator implements ICalculator
 
             // Считаем выражение в скобках
             let subRes = this.Parse(subExpr);
-            subExpr = "(" + subExpr + ")";
 
             // Заменяем выражение в скобках на результат
+            subExpr = "(" + subExpr + ")";
             expr = expr.replace(subExpr, subRes);
         }
 
@@ -56,9 +59,9 @@ class Calculator implements ICalculator
 
             // Выполняем операцию
             let subRes = op[1](leftValue, rightValue);
-            let subExpr = leftValue + expr.charAt(op[0]) + rightValue;
 
             // Заменяем выражение в скобках на результат
+            let subExpr = leftValue + expr.charAt(op[0]) + rightValue;
             expr = expr.replace(subExpr, subRes.toString());
 
             // Ищем следующую операцию
@@ -66,6 +69,20 @@ class Calculator implements ICalculator
         }
 
         return Number(expr);
+    }
+
+
+    @IncreaseByOne
+    ParseAndIncreaseByOne(value: string): number
+    {
+        return this.Parse(value);
+    }
+
+
+    @IncreaseByOne
+    Add(a: number, b: number): number
+    {
+        return a + b;
     }
 }
 
@@ -212,4 +229,4 @@ function GetBrIndexes(expr: string): [number, number]
 }
 
 
-export { ICalculator, Calculator }
+export { IParser, Parser }
