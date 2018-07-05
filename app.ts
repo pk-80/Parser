@@ -1,15 +1,5 @@
-﻿import { Dims, EngUnit } from "./Dims";
-import { IParser, Parser } from "./Parser";
-
-
-class Utils
-{
-    static Show(body: any): void
-    {
-        console.log(body);
-    }
-}
-
+﻿import { IParser, Parser } from "./Parser";
+import { Utils } from "./Utils";
 
 let calc = new Parser();
 
