@@ -1,5 +1,4 @@
-﻿import { Dims, EngUnit } from "./Dims";
-import { IParser, Parser } from "./Parser";
+﻿import { IParser, Parser } from "./Parser";
 import { Utils } from "./Utils";
 
 let calc = new Parser();
